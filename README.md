@@ -9,12 +9,12 @@
 
 ## The Business Problem
 
-One of the most common and costly cloud security failures is **misplaced responsibility** — an organization assumes Microsoft is securing something that is actually their own responsibility, or they spend time and money securing something Microsoft already handles by default.
+One of the most common and costly cloud security failures is **misplaced responsibility**. An organization assumes Microsoft is securing something that is actually their own responsibility, or they spend time and money securing something Microsoft already handles by default.
 
 This gap causes three real business problems:
 
 - **Compliance failures** — FedRAMP, NIST 800-53, and CMMC auditors require documented responsibility assignment for every security control
-- **Security gaps** — assuming Microsoft patches the OS on an Azure VM (they don't — IaaS means you own the OS) leaves systems unpatched and vulnerable
+- **Security gaps** — assuming Microsoft patches the OS on an Azure VM (they don't. IaaS means you own the OS) leaves systems unpatched and vulnerable
 - **Wasted security spend** — building controls around things Microsoft already secures by default is engineering time solving a solved problem
 
 This project answers the question every cloud team needs to answer before any deployment:
@@ -54,7 +54,7 @@ Color key: 🟢 Microsoft · 🔵 You · 🟡 Shared
 
 ### The Key Principle
 
-> *"The higher up the service model stack you go from on-premises to IaaS to PaaS, the more responsibility shifts to Microsoft and the less you manage — but you always remain responsible for your **data** and your **identities** regardless of the deployment model."*
+> *"The higher up the service model stack you go from on-premises to IaaS to PaaS, the more responsibility shifts to Microsoft and the less you manage. But you always remain responsible for your **data** and your **identities** regardless of the deployment model."*
 
 ---
 
@@ -78,7 +78,7 @@ Physical hardware │   YOU    │   │Microsoft │   │Microsoft │
                   └──────────┘   └──────────┘   └──────────┘
 ```
 
-The line separating **You** from **Microsoft** moves higher up the stack as you move right — this is the visual proof of why PaaS reduces operational overhead compared to IaaS, and why IaaS reduces it compared to on-premises.
+The line separating **You** from **Microsoft** moves higher up the stack as you move right. This is the visual proof of why PaaS reduces operational overhead compared to IaaS, and why IaaS reduces it compared to on-premises.
 
 ---
 
@@ -88,7 +88,7 @@ The line separating **You** from **Microsoft** moves higher up the stack as you 
 Most shared responsibility analyses use fictional organizations. Using actual infrastructure forces genuine understanding — you can't pattern-match your way through a matrix built on infrastructure you actually operate. It also surfaces real-world nuance that generic examples miss.
 
 ### 2. Including on-premises as a column
-Most cloud analyses skip on-premises entirely. Including it makes the cloud value proposition immediately visible — you can see exactly which responsibilities disappear when you lift a workload from a physical machine to Azure. This is especially relevant for federal IT environments where hybrid deployments are the norm during cloud migration.
+Most cloud analyses skip on-premises entirely. Including it makes the cloud value proposition immediately visible. You can see exactly which responsibilities disappear when you lift a workload from a physical machine to Azure. This is especially relevant for federal IT environments where hybrid deployments are the norm during cloud migration.
 
 ### 3. The three cells that required the most reasoning
 
@@ -127,17 +127,17 @@ At home lab scale this lives in a document. At production scale (especially FedR
 The current setup uses Microsoft-managed encryption keys — appropriate for non-sensitive log data. For federal environments handling CUI or classified data, customer-managed keys (CMK) in Azure Key Vault would be required, shifting key custody from Microsoft to the organization.
 
 ### Private Endpoints for All PaaS Resources
-sykeslogstorage currently accepts connections from the public internet (secured by RBAC and TLS). At production scale, every PaaS resource would use Private Endpoints — making resources reachable only from within a VNet and invisible to the public internet. This moves network controls from Shared toward You.
+sykeslogstorage currently accepts connections from the public internet (secured by RBAC and TLS). At production scale, every PaaS resource would use Private Endpoints, making resources reachable only from within a VNet and invisible to the public internet. This moves network controls from Shared toward You.
 
 ### Zero Trust Identity Architecture
 At production scale in a federal environment, identity controls would include:
 - Conditional Access with MFA required for all users
-- Privileged Identity Management (PIM) — just-in-time admin elevation
+- Privileged Identity Management (PIM) just-in-time admin elevation
 - Azure AD Identity Protection — risk-based conditional access
 - No standing admin access, no shared credentials
 
 ### Formal RACI Documentation
-The matrix here assigns responsibility to "Microsoft" or "You." At production scale, a formal RACI matrix would name specific teams, roles, and individuals — including the Authorizing Official (AO), ISSO, System Owner, and Cloud Service Provider — as required for FedRAMP authorization.
+The matrix here assigns responsibility to "Microsoft" or "You." At production scale, a formal RACI matrix would name specific teams, roles, and individuals, including the Authorizing Official (AO), ISSO, System Owner, and Cloud Service Provider as required for FedRAMP authorization.
 
 ---
 
@@ -165,7 +165,7 @@ This project directly covers the **Cloud Concepts** domain (25-30% of AZ-900):
 
 ## Documentation
 
-Full project documentation (PDF) is available in this repository — covering the business problem, color-coded responsibility matrix, key decision rationale, three tricky cells explained, and production-scale considerations.
+Full project documentation (PDF) is available in this repository covering the business problem, color-coded responsibility matrix, key decision rationale, three tricky cells explained, and production-scale considerations.
 
 ---
 
