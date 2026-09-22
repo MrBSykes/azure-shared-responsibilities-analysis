@@ -19,7 +19,7 @@ This gap causes three real business problems:
 
 This project answers the question every cloud team needs to answer before any deployment:
 
-> *"Who is responsible for this — Microsoft or us?"*
+> *"Who is responsible for this? Microsoft or us?"*
 
 ---
 
